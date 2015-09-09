@@ -1,4 +1,4 @@
-
+import math
 class ShapeException(Exception):
     pass
 
@@ -38,3 +38,10 @@ def dot(vector1, vector2):
 def vector_multiply(vector, scalar):
     multiply = [scalar*x for x in vector]
     return multiply
+
+
+def magnitude(vector):
+    exp = [x**2 for x in vector]
+    sum_exp = sum(exp)
+    magnitude = math.sqrt(sum_exp)
+    return magnitude
