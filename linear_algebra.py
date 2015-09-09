@@ -7,32 +7,36 @@ def shape(vector):
     num_rows = len(vector)
     return (num_rows,)
 
-def vector_add(vector1, vector2):
+def raise_except(vector1, vector2):
     if len(vector1) != len(vector2):
         raise ShapeException
+
+def vector_add(vector1, vector2):
+    raise_except(vector1, vector2)
     addition = [x + y for x, y in zip(vector1, vector2)]
     return addition
 
 def vector_sub(vector1, vector2):
-    if len(vector1) != len(vector2):
-        raise ShapeException
+    raise_except(vector1, vector2)
     subtraction = [x - y for x, y in zip(vector1, vector2)]
     return subtraction
 
 def vector_sum(*args):
     length = len(args[0])
-    for arg in args:
-        if len(arg) != length:
-            raise ShapeException
-    #[raise ShapeException for arg in args if len(arg) != length]
+    # for arg in args:
+    #     if len(arg) != length:
+    #         raise ShapeException
+    lengths = [len(arg) for arg in args if len(arg) == length]
+    if len(lengths) != len(args):
+        raise ShapeException
     sum_all = [sum(x) for x in zip(*args)]
     return sum_all
 
 def dot(vector1, vector2):
-    if len(vector1) != len(vector2):
-        raise ShapeException
+    raise_except(vector1, vector2)
     multiply = [x*y for x,y in zip(vector1, vector2)]
     return sum(multiply)
+
 
 
 def vector_multiply(vector, scalar):
