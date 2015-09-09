@@ -117,6 +117,7 @@ def test_vector_mean():
     assert is_equal(vector_mean(v, w, u)[2], 5 / 3)
 
 
+
 def test_magnitude():
     """
     magnitude([a b])  = sqrt(a^2 + b^2)
