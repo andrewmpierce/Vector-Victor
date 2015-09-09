@@ -33,3 +33,8 @@ def dot(vector1, vector2):
         raise ShapeException
     multiply = [x*y for x,y in zip(vector1, vector2)]
     return sum(multiply)
+
+
+def vector_multiply(vector, scalar):
+    multiply = [scalar*x for x in vector]
+    return multiply
