@@ -26,8 +26,8 @@ def vector_sum(*args):
     # for arg in args:
     #     if len(arg) != length:
     #         raise ShapeException
-    lengths = [len(arg) for arg in args if len(arg) == length]
-    if len(lengths) != len(args):
+    valid_args = [arg for arg in args if len(arg) == length]
+    if len(valid_args) != len(args):
         raise ShapeException
     sum_all = [sum(x) for x in zip(*args)]
     return sum_all
